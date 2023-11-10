@@ -1,13 +1,11 @@
 import { NextResponse } from "next/server";
-import { Sql } from "@prisma/client/runtime/library";
 import prisma from "@/app/lib/prisma";
-import { error } from "console";
 import { Section } from "@prisma/client";
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
   try {
-    const sections = await prisma?.section.findFirst();
+    const sections = await prisma?.section.findMany();
+    console.log(sections);
     return NextResponse.json(sections);
   } catch (error) {
     if (error instanceof Error) {
