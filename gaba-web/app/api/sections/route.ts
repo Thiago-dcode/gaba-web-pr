@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Sql } from "@prisma/client/runtime/library";
 import prisma from "@/app/lib/prisma";
 import { error } from "console";
+import { Section } from "@prisma/client";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -20,12 +21,33 @@ export async function GET(request: Request) {
       );
     }
   }
-
- 
 }
 
 export async function POST(request: Request) {
-  //TODO: implement create.
+  const data: Section = await request.json();
+  console.log(data);
+  const { name, link, isActive, description, order, userId } = data;
+  try {
+    const result = await prisma?.section.create({
+      data: {
+        name,
+        link,
+        description,
+        isActive,
+        userId,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    if (error instanceof Error) {
+      return NextResponse.json(
+        {
+          message: error.message,
+        },
+        { status: 500 }
+      );
+    }
+  }
 }
 
 // const limit = searchParams.get("limit");
