@@ -25,6 +25,9 @@ export async function POST(request: Request) {
   const data: Section = await request.json();
   console.log(data);
   const { name, link, isActive, description, order, userId } = data;
+
+  
+  //validate
   try {
     const result = await prisma?.section.create({
       data: {

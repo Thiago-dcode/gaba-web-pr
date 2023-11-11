@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Media {
+  id      Int       @id @default(autoincrement())
+  type    String
+  url     String
+  userId  Int
+  User    User      @relation(fields: [userId], references: [id])
+  Section Section[]
+}
+
+model Section {
+  id           Int     @id @default(autoincrement())
+  name         String  @unique
+  link         String  @unique
+  description  String?
+  userId       Int
+  iconActive   String  @default("/icon/open.png")
+  iconUnActive String  @default("/icon/close.png")
+  isActive     Boolean @default(false)
+  order        Int?
+  User         User    @relation(fields: [userId], references: [id])
+  Media        Media[]
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
+  name     String?
+  surname  String?
+  password String
+  username String    @unique
+  Media    Media[]
+  Section  Section[]
+}
