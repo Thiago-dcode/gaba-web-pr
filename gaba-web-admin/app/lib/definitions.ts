@@ -2,6 +2,7 @@ import { Url } from "next/dist/shared/lib/router/router";
 
 export type User = {
   id: string;
+  username: StringConstructor;
   email: string;
   name: string;
   password: String;

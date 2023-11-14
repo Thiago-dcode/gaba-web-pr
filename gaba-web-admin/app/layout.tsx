@@ -23,13 +23,7 @@ export default function RootLayout({
           " text-white  bg-gradient-to-br from-slate-900 to-slate-800 flex flex-col items-center h-screen"
         }
       >
-        <header className="mt-20 w-full border-b ">
-          <Nav />
-        </header>
-
-        <main className="  w-full h-full flex flex-col items-center justify-start">
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );
