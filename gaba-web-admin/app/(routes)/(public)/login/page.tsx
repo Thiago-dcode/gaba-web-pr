@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Form from "@/app/components/form/Form";
 import Input from "@/app/components/form/input/Input";
-import { validateEmail, validatePassword } from "@/app/lib/utils/Validate";
+import { validateEmail, validatePassword } from "@/app/lib/validation/validation";
 import { signIn } from "next-auth/react";
 export default function Login() {
   const router = useRouter();

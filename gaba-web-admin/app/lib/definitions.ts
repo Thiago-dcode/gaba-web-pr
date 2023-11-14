@@ -30,3 +30,5 @@ export type Section = {
   userId: number;
   media: Media[];
 };
+
+

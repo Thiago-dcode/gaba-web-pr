@@ -5,11 +5,13 @@ export default function Form({
   children,
   title,
   className,
+  btnText = 'submit'
 }: {
   handleSubmit: Function;
-  children: React.ReactNode;
-  title: string;
-  className: string;
+  children?: React.ReactNode;
+  title?: string;
+  className?: string;
+  btnText?:string;
 }) {
   return (
     <form
@@ -23,7 +25,7 @@ export default function Form({
       <div className="flex flex-col gap-5">{children}</div>
 
       <button className="hover:bg-gray-500 hover:text-white bg-white w-32 rounded-md  text-black">
-        Submit
+        {btnText}
       </button>
     </form>
   );
