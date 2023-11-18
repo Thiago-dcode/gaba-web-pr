@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Nav from "@/app/components/nav/Nav";
-import Main from "@/app/components/wrapper/main";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/lib/auth";
+import Main from "@/app/components/wrapper/Main";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default async function privateLayout({
   }
   return (
     <>
-      <header className="mt-20 w-full border-b ">
+      <header className="mt-6 w-full  ">
         <Nav />
       </header>
       <Main>{children}</Main>

@@ -1,5 +1,5 @@
 import React from "react";
-
+import Error from "../../error/Error";
 type input = {
   handleInput: Function;
   error?: string;
@@ -21,7 +21,8 @@ export default function Input({
         className="bg-transparent outline-none border-b-2 "
         type={type}
       />
-      <p className="h-3  text-xs self-start text-red-500">{error}</p>
+      
+      <Error error= {error}/>
     </div>
   );
 }

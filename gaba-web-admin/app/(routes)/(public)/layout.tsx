@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Main from "@/app/components/wrapper/main";
+import Main from "@/app/components/wrapper/Main";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/lib/auth";
 import { redirect } from "next/navigation";
@@ -19,8 +19,8 @@ export default async function publicLayout({
   //await for the session
 
   const session = await getServerSession(authOptions);
-  if(session){
-    redirect('/')
+  if (session) {
+    redirect("/");
   }
   return (
     <>

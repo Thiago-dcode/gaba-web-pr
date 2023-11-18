@@ -4,7 +4,7 @@ import { Section } from "@prisma/client";
 
 export async function POST(request: Request) {
   const data: Section = await request.json();
-  console.log(data);
+  console.log(request);
   const { name, link, isActive, description, order, userId } = data;
 
   //validate
